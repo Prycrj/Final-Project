@@ -28,33 +28,27 @@ import logging
 
 
 
-JINJA_ENVIRONMENT = jinja2.Environment(
+env = jinja2.Environment(
     loader=jinja2.FileSystemLoader(os.path.dirname(__file__)),
     extensions=['jinja2.ext.autoescape'],
     autoescape=True)
 
 class MainHandler(webapp2.RequestHandler):
     def get(self):
-        count_template = JINJA_ENVIRONMENT.get_template("index.html")
-        self.response.write(count_template.render())
-
+        template = env.get_template('index.html')
+        template_values = {'a': 1}
+        self.response.write(template.render(template_values))
     def post(self):
-        googleAPI_template = JINJA_ENVIRONMENT.get_template("result.html")
-        user_query = self.request.get("user_query")
-        base_url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?"
+        input_field = self.request.get('user_query')
 
-        url_params = {'location': "40.6665,-73.9576" ,'radius':"500",'types':'food','name': user_query, 'key': 'AIzaSyAO1qeFArYbQ16zHyYe0Bojfj6rLhzNv6U'}
-        googlemap_data = urllib.urlopen(base_url + urllib.urlencode(url_params)).read()
-        json_data = json.loads(googlemap_data)
-        logging.info(json_data['results'][0]['geometry']['location'])
-        #self.response.write(json_data)
-        result_dict = json_data['results'][0]['geometry']['location']
-        self.response.write(googleAPI_template.render(result_dict))
+        lat = self.request.get('lat')
+        lng = self.request.get('lng')
+
+        logging.info(self.request.POST)
+        template = env.get_template('result.html')
+        self.response.write(template.render( {'lat': lat, 'lng':lng} ))
 
 
-
-        #for item in json_data['data']:
-        #    self.response.write('<h2>' + item['']['original'] + '<br/><br/></h2>' )
 
 
 

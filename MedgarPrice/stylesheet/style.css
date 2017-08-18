@@ -5,6 +5,7 @@ html {
 
 .Header{
 background-color: white;
+
 }
 
 #Menu{
@@ -46,11 +47,10 @@ background-color: white;
 
 #image_logo{
 
-max-width: 125px;
+max-width: 145px;
 height: auto;
 
-display: block;
-margin: 0 auto;
+float :left;
 
 }
 
@@ -78,7 +78,8 @@ div#slider figure {
 
 #About_container{
 padding: 80px 80px 80px 80px;
-
+background-image: url("http://www.naheedence.com/img/s/v-3/p1278939391-5.jpg");
+    background-color: #cccccc;
 }
 
 h3{
@@ -153,7 +154,7 @@ color :purple;
 
 
 body{
-background-color: #f7f8f9 ;
+background-color: #ce2931 ;
 font-family: sans-serif;
 margin:0;
 height: 100%;
@@ -221,3 +222,81 @@ padding: 30px 50px 20px 50px ;
         height: 400px;
         width: 100%;
        }
+
+
+
+
+
+       input[type=text] {
+         width: 1030px;
+         box-sizing: border-box;
+         border: 2px solid #ccc;
+         border-radius: 4px;
+         font-size: 16px;
+         background-color: white;
+         background-image: url('searchicon.png');
+         background-position: 10px 10px;
+         background-repeat: no-repeat;
+         padding: 12px 20px 12px 40px;
+         -webkit-transition: width 0.4s ease-in-out;
+         transition: width 0.4s ease-in-out;
+     }
+
+     input[type=text]:focus {
+         width: 100%;
+     }
+
+
+
+
+
+
+
+
+
+
+     .myButton {
+	background-color:#000000;
+	-moz-border-radius:28px;
+	-webkit-border-radius:28px;
+	border-radius:28px;
+	border:1px solid #171a17;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:17px;
+	padding:16px 31px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #090f08;
+}
+.myButton:hover {
+	background-color:#000000;
+}
+.myButton:active {
+	position:relative;
+	top:1px;
+}
+
+
+.contentFake{
+
+	height: 10px;
+}
+
+.footer{
+	width: 100%;
+	position: fixed;
+	margin-bottom: 0px;
+	height: 50px;
+	background-color: #1A1A1A;
+	display: block;
+}
+
+.footerContent{
+	width: 80%;
+	margin: auto;
+	padding: 5px;
+	text-align: center;
+	
+}
